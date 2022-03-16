@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jae",
+      "email": "jae@admin.com"
+    },
+    {
+      "id": 2,
+      "name": "Jason",
+      "email": "json-jason@json.com"
+    },
+    {
+      "id": 3,
+      "name": "Bipp",
+      "email": "Bipp@Binton.com"
+    },
+    {
+      "name": "Brenda",
+      "email": "tacoBrenda@NSS.com",
+      "id": 4
+    },
+    {
+      "name": "Dakota",
+      "email": "DCoder@yahoo.com",
+      "id": 5
+    }
+  ],
+  "posts": [],
+  "messages": []
+}
