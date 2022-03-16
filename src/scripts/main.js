@@ -1,20 +1,29 @@
 /**
  * Main logic module for what should happen on initial page load for Giffygram
  */
-
 import * as dataManager from "./data/dataManager.js";
 import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
+import { Footer } from "./footer/footer.js";
+
+const applicationElement = document.querySelector(".giffygram");
 
 const startGiffyGram = () => {
-  showPostList();
   showNavBar();
+  showPostList();
+  showFooter();
 };
 
 const showNavBar = () => {
   //Get a reference to the location on the DOM where the nav will display
   const navElement = document.querySelector("nav");
   navElement.innerHTML = NavBar();
+};
+
+const showFooter = () => {
+  //Get a reference to the location on the DOM where the footer will display
+  const footElement = document.querySelector("footer");
+  footElement.innerHTML = Footer();
 };
 
 const showPostList = () => {

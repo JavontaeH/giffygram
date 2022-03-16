@@ -31,9 +31,17 @@
       "title": "Does this even work?",
       "description": "Admin Testing!",
       "imageURL": "https://media.giphy.com/media/26tP4gFBQewkLnMv6/giphy.gif",
-      "timestamp": "",
+      "timestamp": "1561695022812",
       "userId": 1,
       "id": 1
+    },
+    {
+      "title": "Does this even work?",
+      "description": "Admin Testing!",
+      "imageURL": "https://media.giphy.com/media/26tP4gFBQewkLnMv6/giphy.gif",
+      "timestamp": "1561695022812",
+      "userId": 1,
+      "id": 2
     }
   ],
   "messages": []
