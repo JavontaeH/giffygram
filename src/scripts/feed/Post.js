@@ -6,14 +6,17 @@ export const Post = (postObject) => {
   return `
       <section class="post">
         <header>
-            <h2 class="post__title">${postObject.title} <br> ${
-    postObject.id
+            <h2 class="post__title">${postObject.title} By: ${
+    postObject.userId
   }</h2>
         </header>
         <img class="post__image" src="${postObject.imageURL}" />
-        <p class = "newPost__description">${
-          postObject.description
-        } <br> ${formatDate(postObject.timestamp)}</p>
+        <p class = "post__tagline">${postObject.description} <br> ${formatDate(
+    postObject.timestamp
+  )}</p>
+         <div class = "post__actions" ><button id="edit--${
+           postObject.id
+         }">Edit</button></div>
       </section>
     `;
 };
