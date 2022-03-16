@@ -31,7 +31,7 @@
       "title": "Does this even work?",
       "description": "Admin Testing!",
       "imageURL": "https://media.giphy.com/media/26tP4gFBQewkLnMv6/giphy.gif",
-      "timestamp": "",
+      "timestamp": 1614492000000,
       "userId": 1,
       "id": 1
     },
@@ -39,10 +39,11 @@
       "title": "Taco Wednesday?",
       "description": "It's taco tuesday somewhere in the world...",
       "imageURL": "https://media4.giphy.com/media/JUkvncHulD7nt0PBMq/giphy.gif?cid=ecf05e47l1ils3i41enw4y3x90y81tj2gs58g3ga5j8kxxdd&rid=giphy.gif&ct=g",
-      "timestamp": "",
+      "timestamp": 1647234000000,
       "userId": 4,
       "id": 2
     }
   ],
-  "messages": []
+  "messages": [],
+  "likes": []
 }

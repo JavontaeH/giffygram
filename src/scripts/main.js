@@ -6,14 +6,15 @@ import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
 import { Footer } from "./nav/footer.js";
 
-// manage users and posts Data.
-dataManager.getUsers().then((data) => {
-  console.log("Users", data);
-});
+// print the users and posts data to the console
 
-dataManager.getPosts().then((data) => {
-  console.log("Data", data);
-});
+// dataManager.getUsers().then((data) => {
+//   console.log("Users", data);
+// });
+
+// dataManager.getPostsWithUsers().then((data) => {
+//   console.log("Posts", data);
+// });
 
 // event listeners
 const applicationElement = document.querySelector(".giffygram");
@@ -37,8 +38,9 @@ applicationElement.addEventListener("click", (event) => {
 applicationElement.addEventListener("change", (event) => {
   if (event.target.id === "yearSelection") {
     const yearAsNumber = parseInt(event.target.value);
-
     console.log(`User wants to see posts since ${yearAsNumber}`);
+    //invoke a filter function passing the year as an argument
+    showFilteredPosts(yearAsNumber);
   }
 });
 
@@ -48,12 +50,28 @@ const showNavBar = () => {
   const navElement = document.querySelector("nav");
   navElement.innerHTML = NavBar();
 };
+
+const postElement = document.querySelector(".postList");
+
 const showPostList = () => {
   //Get a reference to the location on the DOM where the list will display
-  const postElement = document.querySelector(".postList");
-  dataManager.getPosts().then((allPosts) => {
+  dataManager.getPostsWithUsers().then((allPosts) => {
     postElement.innerHTML = PostList(allPosts);
   });
+};
+
+const showFilteredPosts = (year) => {
+  //get a copy of the post collection
+  const epoch = Date.parse(`01/01/${year}`);
+  //filter the data
+  const filteredData = dataManager.usePostCollection().filter((singlePost) => {
+    if (singlePost.timestamp >= epoch) {
+      return singlePost;
+    }
+  });
+  postElement.innerHTML = PostList(filteredData);
+  postCounter = filteredData.length;
+  console.log(postCounter);
 };
 
 const showFooter = () => {
