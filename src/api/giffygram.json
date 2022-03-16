@@ -26,6 +26,15 @@
       "id": 5
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "title": "Does this even work?",
+      "description": "Admin Testing!",
+      "imageURL": "https://media.giphy.com/media/26tP4gFBQewkLnMv6/giphy.gif",
+      "timestamp": "",
+      "userId": 1,
+      "id": 1
+    }
+  ],
   "messages": []
 }
