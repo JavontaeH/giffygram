@@ -12,7 +12,7 @@ export const Footer = () => {
                     <option>2018</option>
                     <option>2017</option>
                 </select>
-                <span id="postCount">: 0</span>
+                <span id="postCount">:</span>
             </div>
         </footer>
     `;

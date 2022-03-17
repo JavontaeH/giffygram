@@ -1,5 +1,5 @@
-export const formatDate = (string) => {
-  const date = new Date(string);
+export const formatDate = (integer) => {
+  const date = new Date(integer);
   let day = date.getUTCDate();
   let month = date.getUTCMonth() + 1;
   let year = date.getUTCFullYear();

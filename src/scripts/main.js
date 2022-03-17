@@ -53,8 +53,7 @@ applicationElement.addEventListener("click", (event) => {
     };
 
     // be sure to import from the DataManager
-    dataManager.createPost(postObject);
-    showPostList();
+    dataManager.createPost(postObject).then(showPostList);
     var elements = document.getElementsByClassName("newPost__input");
     for (var ii = 0; ii < elements.length; ii++) {
       elements[ii].value = "";
@@ -109,6 +108,7 @@ const showFilteredPosts = (year) => {
     }
   });
   postElement.innerHTML = PostList(filteredData);
+  document.getElementById("postCount").innerHTML = filteredData.length;
 };
 
 const showFooter = () => {
