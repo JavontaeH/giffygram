@@ -4,6 +4,7 @@ export const Footer = () => {
             <p class="footer__item">Javontae Hardeman @ NSS 55, &copy; ${new Date().getFullYear()} , For learning purposes only.</p>
              <div class="footer__item">
                 Posts since <select id="yearSelection">
+                <option selected disabled>Filter by Year Since</option>
                 <option>2022</option>
                 <option>2021</option>
                     <option>2020</option>

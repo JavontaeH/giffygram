@@ -5,6 +5,7 @@ import * as dataManager from "./data/dataManager.js";
 import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
 import { Footer } from "./nav/footer.js";
+import { PostEntry } from "./feed/PostEntry.js";
 
 // print the users and posts data to the console
 
@@ -20,6 +21,7 @@ import { Footer } from "./nav/footer.js";
 const applicationElement = document.querySelector(".giffygram");
 
 applicationElement.addEventListener("click", (event) => {
+  event.preventDefault();
   if (event.target.id === "logout") {
     console.log("You clicked on logout");
   }
@@ -32,6 +34,37 @@ applicationElement.addEventListener("click", (event) => {
   if (event.target.id.startsWith("edit")) {
     console.log("post clicked", event.target.id.split("--"));
     console.log("the id is", event.target.id.split("--")[1]);
+  }
+  if (event.target.id === "newPost__submit") {
+    //collect the input values into an object to post to the DB
+    const title = document.querySelector("input[name='postTitle']").value;
+    const url = document.querySelector("input[name='postURL']").value;
+    const description = document.querySelector(
+      "textarea[name='postDescription']"
+    ).value;
+    //we have not created a user yet - for now, we will hard code `1`.
+    //we can add the current time as well
+    const postObject = {
+      title: title,
+      imageURL: url,
+      description: description,
+      userId: dataManager.getLoggedInUser().id,
+      timestamp: Date.now(),
+    };
+
+    // be sure to import from the DataManager
+    dataManager.createPost(postObject);
+    showPostList();
+    var elements = document.getElementsByClassName("newPost__input");
+    for (var ii = 0; ii < elements.length; ii++) {
+      elements[ii].value = "";
+    }
+  }
+  if (event.target.id === "newPost__cancel") {
+    var elements = document.getElementsByClassName("newPost__input");
+    for (var ii = 0; ii < elements.length; ii++) {
+      elements[ii].value = "";
+    }
   }
 });
 
@@ -53,6 +86,12 @@ const showNavBar = () => {
 
 const postElement = document.querySelector(".postList");
 
+const showPostEntry = () => {
+  //Get a reference to the location on the DOM where the nav will display
+  const entryElement = document.querySelector(".entryForm");
+  entryElement.innerHTML = PostEntry();
+};
+
 const showPostList = () => {
   //Get a reference to the location on the DOM where the list will display
   dataManager.getPostsWithUsers().then((allPosts) => {
@@ -70,8 +109,6 @@ const showFilteredPosts = (year) => {
     }
   });
   postElement.innerHTML = PostList(filteredData);
-  postCounter = filteredData.length;
-  console.log(postCounter);
 };
 
 const showFooter = () => {
@@ -82,6 +119,7 @@ const showFooter = () => {
 
 const startGiffyGram = () => {
   showNavBar();
+  showPostEntry();
   showPostList();
   showFooter();
 };
