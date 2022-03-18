@@ -25,7 +25,7 @@ export const usePostCollection = () => {
 };
 
 export const getPostsWithUsers = () => {
-  return fetch("http://localhost:8088/posts?_expand=user")
+  return fetch("http://localhost:8088/posts?_expand=user") // expand to include user element, in order to grab username later.
     .then((response) => response.json())
     .then((parsedResponse) => {
       postCollection = parsedResponse;

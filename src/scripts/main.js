@@ -108,7 +108,7 @@ const showFilteredPosts = (year) => {
     }
   });
   postElement.innerHTML = PostList(filteredData);
-  document.getElementById("postCount").innerHTML = filteredData.length;
+  document.getElementById("postCount").innerHTML = `: ${filteredData.length}`;
 };
 
 const showFooter = () => {
